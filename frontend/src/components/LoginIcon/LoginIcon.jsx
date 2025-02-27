@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faA, faB, faC, faD, faE, faF, faG, faH, faI, faJ, faK, faL, faM, faN, faO, faP, faQ, faR, faRightFromBracket, faS, faShoppingBag, faT, faU, faV, faW, faX, faY, faZ } from "@fortawesome/free-solid-svg-icons";
-import { StoreContext } from '../../ContextApi/StoreContext';
+import { StoreContext } from '../../ContextApi/StoreContext.jsx';
 import './LoginIcon.css'
 import { useNavigate } from 'react-router-dom';
 

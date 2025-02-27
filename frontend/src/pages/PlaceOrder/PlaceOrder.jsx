@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './PlaceOrder.css'
 import { useActionData } from 'react-router-dom'
-import { StoreContext } from '../../ContextApi/StoreContext'
+import { StoreContext } from '../../ContextApi/StoreContext.jsx'
 
 const PlaceOrder = () => {
 

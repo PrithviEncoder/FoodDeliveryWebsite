@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { assets } from '../../assets/assets';
+import { assets } from '../../assets/assets.js';
 import { Menu, X, Search, Home, Smartphone, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { StoreContext } from '../../ContextApi/StoreContext';
+import { StoreContext } from '../../ContextApi/StoreContext.jsx';
 import './Navbar.css'
 import LoginIcon from '../LoginIcon/LoginIcon.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
