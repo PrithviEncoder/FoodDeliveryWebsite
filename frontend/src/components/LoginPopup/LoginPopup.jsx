@@ -4,8 +4,8 @@ import './LoginPopup.css'
 import { StoreContext } from '../../ContextApi/StoreContext.jsx'
 import axios from "axios"
 
-const LoginPopup = ({ setShowPopup }) => {
-    const { SERVER_URL, token, setToken } = useContext(StoreContext)
+const LoginPopup = () => {
+    const { SERVER_URL, token,setShowPopup, setToken, loadCartData} = useContext(StoreContext)
     const [localError, setLocalError] = useState("")
     const [currState, setCurrState] = useState("Login")
     const [data, setData] = useState({
@@ -27,6 +27,7 @@ const LoginPopup = ({ setShowPopup }) => {
         localStorage.setItem("email",data.email)
     }, [data])
 
+    //login /register
     const onLogin = async (event) => {
 
         event.preventDefault()
@@ -46,6 +47,8 @@ const LoginPopup = ({ setShowPopup }) => {
                 setToken(response.data.token)
                 localStorage.setItem("token", response.data.token)
                 setShowPopup(false)//hide popup after submit
+                loadCartData(localStorage.getItem("token"))//on login reload cartitem
+                
             }
 
         } catch (error) {

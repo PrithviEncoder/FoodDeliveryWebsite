@@ -9,11 +9,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartFlatbedSuitcase, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 
-const Navbar = ({ setShowPopup }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken ,setShowPopup} = useContext(StoreContext);
 
   const toggle = () => {
     setIsMenuOpen(!isMenuOpen);

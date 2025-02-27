@@ -27,7 +27,7 @@ const navigate=useNavigate()
         {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
-              <div>
+              <div key={item._id}>
                 <div className="cart-items-title cart-items-item">
                   <img src={SERVER_URL+"/images/"+item.image} alt="" />
                   <p>{item.name}</p>
