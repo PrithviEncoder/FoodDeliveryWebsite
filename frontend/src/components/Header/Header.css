@@ -1,0 +1,23 @@
+.view-btn{
+    font-size: max(1vw,10px);
+    padding:1.3vw 2.3vw;
+}
+
+.Header {
+        background: url('/header_img.png');/*on style att. unusual behaviour*/
+        @apply w-[74%] m-auto mt-6 bg-cover rounded-lg bg-center bg-no-repeat aspect-[2/1] relative
+}
+    
+.Header-info-box{
+    @apply absolute left-4 sm:left-6 md:left-8 lg:left-12 xl:left-16 bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-12 xl:bottom-16 text-[12px] sm:text-[14px] flex flex-col gap-1 sm:gap-4 md:gap-7 lg:gap-10 xl:gap-14
+}
+  
+.Heading{
+    @apply  text-white text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+}
+.Quote{
+    @apply text-white lg:text-[18px] xl:text-[20px]
+}
+.view-btn{
+    @apply  w-[18vw] md:w-[15vw] xl:w-[13vw] text-[#747474] bg-white rounded-[50px] sm:pt-3 md:pt-4 sm:pb-3 md:pb-4 border  border-white
+}
