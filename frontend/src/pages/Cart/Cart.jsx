@@ -3,13 +3,13 @@ import { StoreContext } from '../../ContextApi/StoreContext.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import './Cart.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-  const { food_list, cartItems, addToCart, removeFromCart, getTotalCartAmount,SERVER_URL } = useContext(StoreContext);
+  const { food_list, cartItems, addToCart, removeFromCart, getTotalCartAmount, SERVER_URL } = useContext(StoreContext);
 
-const navigate=useNavigate()
+  const navigate = useNavigate()
 
   return (
     <div className='cart'>
@@ -24,12 +24,23 @@ const navigate=useNavigate()
         </div>
         <br />
         <hr />
+
+
+        {//since object may be empty but it has key it is not falsy
+          Object.values(cartItems).every(value => value === 0) ?
+            <div className="empty-cart flex flex-col items-center gap-4">
+            <img className='w-40' src='/empty.png' alt='empty cart'></img>
+              <Link to='/'><div className="bg-gray-600 p-3 rounded-md text-white">Add Items</div></Link>
+            </div> :
+            ""}
+
+
         {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div key={item._id}>
                 <div className="cart-items-title cart-items-item">
-                  <img src={SERVER_URL+"/images/"+item.image} alt="" />
+                  <img src={SERVER_URL + "/images/" + item.image} alt="" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
@@ -46,7 +57,8 @@ const navigate=useNavigate()
                 </div>
                 <hr />
               </div>
-            )}
+            )
+          }
         })}
       </div>
 
@@ -56,21 +68,21 @@ const navigate=useNavigate()
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${ getTotalCartAmount() }</p>
+              <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${ getTotalCartAmount()?2:0 }</p>
+              <p>${getTotalCartAmount() ? 2 : 0}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${ getTotalCartAmount()?getTotalCartAmount()+2:0 }</b>
+              <b>${getTotalCartAmount() ? getTotalCartAmount() + 2 : 0}</b>
             </div>
             <hr />
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
         </div>
 
         <div className="cart-promocode">

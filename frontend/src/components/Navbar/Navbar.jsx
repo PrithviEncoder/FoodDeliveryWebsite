@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div className="navbar relative w-screen m-auto h-20 flex justify-between items-center lg:w-4/5">
       <Link to="/">
-        <img src={assets.logo} alt="Logo" className="logo w-20 ml-5 sm:w-28 sm:ml-10 md:w-32 xl:w-40" />
+        <img src='/logo.jpg' alt="Logo" className="logo w-20 ml-5 sm:w-32 sm:ml-10 md:w-36 xl:w-40" />
       </Link>
 
       {screenWidth < 640 ? (

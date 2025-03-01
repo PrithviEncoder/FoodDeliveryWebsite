@@ -42,7 +42,7 @@ const loginUser = async (req, res) => {
         //token
         const token = createToken(user._id)
         
-        return res.status(200).json({success:true,token})
+        return res.status(200).json({success:true,token,user})
 
     } catch (error) {
         console.log(error)
@@ -91,7 +91,7 @@ const registerUser = async (req, res) => {
         //generate token
         const token = createToken(user._id)
 
-        return res.status(200).json({ success: true, token })
+        return res.status(200).json({ success: true, token,user })
 
     } catch (error) {
         console.log(error)

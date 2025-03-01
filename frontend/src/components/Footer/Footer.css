@@ -11,7 +11,7 @@
 }
 
 .footer-content-left img {
-    @apply w-24
+    @apply w-24 sm:w-32 md:w-40 lg:w-48 xl:w-60 
 }
 
 .footer-content-left, .footer-content-right, .footer-content-center {

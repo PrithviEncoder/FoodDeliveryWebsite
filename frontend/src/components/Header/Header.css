@@ -4,7 +4,7 @@
 }
 
 .Header {
-        background: url('/header_img.png');/*on style att. unusual behaviour*/
+        background: url('/foodBanner.jpg');/*on style att. unusual behaviour*/
         @apply w-[74%] m-auto mt-6 bg-cover rounded-lg bg-center bg-no-repeat aspect-[2/1] relative
 }
     
@@ -21,3 +21,6 @@
 .view-btn{
     @apply  w-[18vw] md:w-[15vw] xl:w-[13vw] text-[#747474] bg-white rounded-[50px] sm:pt-3 md:pt-4 sm:pb-3 md:pb-4 border  border-white
 }
+
+.user-info{
+     @apply text-3xl text-white bg-gray-600 rounded-md px-1 font-semibold box-border  }

@@ -8,13 +8,15 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginIcon = () => {
 
-    const { setToken, setCartItems } = useContext(StoreContext)
-    const navigate=useNavigate()
+    const { setToken, setCartItems} = useContext(StoreContext)
+    const navigate = useNavigate()
 
     //logout
     const logout = () => {
         localStorage.removeItem("token")
         setToken("")
+        localStorage.removeItem("userInfo")
+        
         setCartItems({})//on logout show in frontend that cart is empty but data is there is backend
         //logout send to home page or blur background
         navigate('/')
