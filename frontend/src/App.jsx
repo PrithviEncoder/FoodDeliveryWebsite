@@ -9,6 +9,7 @@ import LoginPopup from './components/LoginPopup/LoginPopup.jsx'
 import { StoreContext } from './ContextApi/StoreContext.jsx'
 import ProtectRoutes from './ProtectRoutes/ProtectRoutes.js'
 import Verify from './pages/Verify/Verify.jsx'
+import MyOrders from './pages/MyOrders/MyOrders.jsx'
 
 
 function App() {
@@ -29,7 +30,9 @@ function App() {
 
           <Route path='/order' element={<ProtectRoutes><PlaceOrder /></ProtectRoutes>} />
 
-          <Route path='/verify' element={<Verify/>} />
+          <Route path='/verify' element={<Verify />} />
+
+          <Route path='/myorders' element={<MyOrders />} />
         </Routes>
 
         <Footer />

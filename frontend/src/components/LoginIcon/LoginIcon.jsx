@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faA, faB, faC, faD, faE, faF, faG, faH, faI, faJ, faK, faL, faM, faN, faO, faP, faQ, faR, faRightFromBracket, faS, faShoppingBag, faT, faU, faV, faW, faX, faY, faZ } from "@fortawesome/free-solid-svg-icons";
 import { StoreContext } from '../../ContextApi/StoreContext.jsx';
 import './LoginIcon.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const LoginIcon = () => {
 
-    const { setToken, setCartItems} = useContext(StoreContext)
+    const { setToken, setCartItems } = useContext(StoreContext)
     const navigate = useNavigate()
 
     //logout
@@ -16,7 +16,7 @@ const LoginIcon = () => {
         localStorage.removeItem("token")
         setToken("")
         localStorage.removeItem("userInfo")
-        
+
         setCartItems({})//on logout show in frontend that cart is empty but data is there is backend
         //logout send to home page or blur background
         navigate('/')
@@ -89,10 +89,12 @@ const LoginIcon = () => {
 
                 <div className="login-icon-popup">
                     <ul>
-                        <li>
-                            <FontAwesomeIcon icon={faShoppingBag} className='text-gray-600' />
-                            <p>Orders</p>
-                        </li>
+                        <Link to='/myorders'>
+                            <li>
+                                <FontAwesomeIcon icon={faShoppingBag} className='text-gray-600' />
+                                <p>Orders</p>
+                            </li>
+                        </Link>
                         <hr />
                         <li onClick={logout}>
                             <FontAwesomeIcon icon={faRightFromBracket} className='text-gray-600' />
