@@ -5,7 +5,7 @@ import { StoreContext } from '../../ContextApi/StoreContext.jsx'
 import axios from "axios"
 
 const LoginPopup = () => {
-    const { SERVER_URL, setShowPopup, setToken, loadCartData } = useContext(StoreContext)
+    const { SERVER_URL,setShowForgotPopup, setShowPopup, setToken, loadCartData } = useContext(StoreContext)
     const [localError, setLocalError] = useState("")
     const [currState, setCurrState] = useState("Login")
     const [data, setData] = useState({
@@ -78,6 +78,10 @@ const LoginPopup = () => {
                     <input name="email" onChange={onChangeHandler} value={data.email} type="email" placeholder="Your email" required />
                     <input name="password" onChange={onChangeHandler} value={data.password} type="password" placeholder="password" required />
                 </div>
+                <p onClick={() => {
+                    setShowForgotPopup(true)
+                    setShowPopup(false)
+                 }} className='forgot-password'>Forgot password?</p>
                 <p className='text-red-600 text-[14px]'>{localError}</p>
                 <button type='submit'>
                     {currState === "Sign Up" ? "Create accout" : "Login"}

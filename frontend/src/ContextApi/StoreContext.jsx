@@ -5,7 +5,9 @@ export const StoreContext = createContext();
 
 const StoreContextProvider = (props) => {
 
-    const [showPopup, setShowPopup] = useState(false);
+    const [showPopup, setShowPopup] = useState(false)
+
+    const [showForgotPopup,setShowForgotPopup]=useState(false)
 
     const [cartItems, setCartItems] = useState({})
 
@@ -110,6 +112,8 @@ const StoreContextProvider = (props) => {
         cartItems,
         SERVER_URL,
         token,
+        showForgotPopup,
+        setShowForgotPopup,
         setShowPopup,
         setFood_list,
         setToken,

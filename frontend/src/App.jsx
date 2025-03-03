@@ -10,15 +10,18 @@ import { StoreContext } from './ContextApi/StoreContext.jsx'
 import ProtectRoutes from './ProtectRoutes/ProtectRoutes.js'
 import Verify from './pages/Verify/Verify.jsx'
 import MyOrders from './pages/MyOrders/MyOrders.jsx'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx'
+import ResetPassword from './pages/ResetPassword/ResetPassword.jsx'
 
 
 function App() {
-  const { showPopup } = useContext(StoreContext)
+  const { showPopup,showForgotPopup } = useContext(StoreContext)
 
   return (
     <>
 
       {showPopup ? <LoginPopup /> : <></>}
+      {showForgotPopup? <ForgotPassword/> : <></>}
 
       <div id="app">
         <Navbar />
@@ -33,6 +36,8 @@ function App() {
           <Route path='/verify' element={<Verify />} />
 
           <Route path='/myorders' element={<MyOrders />} />
+
+          <Route path='/reset-password/:resetToken' element={<ResetPassword/>} />
         </Routes>
 
         <Footer />
