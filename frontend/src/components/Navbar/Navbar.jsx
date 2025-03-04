@@ -96,7 +96,9 @@ const Navbar = () => {
       )}
 
       <div className={`${screenWidth < 640 && screenWidth > 500 ? 'mr-20 gap-10' : 'mr-6 gap-6'} navbar-right flex`}>
+        <a href="#search">
         <FontAwesomeIcon  icon={faSearch} size='2x' className='text-gray-600'/>
+        </a>
         <div className="basket relative">
           <Link to="/cart">
             <FontAwesomeIcon icon={faCartFlatbedSuitcase} size='2x' className='text-gray-600'/>

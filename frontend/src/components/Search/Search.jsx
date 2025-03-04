@@ -40,7 +40,8 @@ useEffect(() => {
 
 
   return (
-      <div className='search'>
+    <div className='search' id='search'>
+      <p className='search-heading'>Search food here</p>
           <input type="text"
               className="search-bar"
         placeholder="Search for food..."

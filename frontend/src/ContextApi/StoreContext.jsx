@@ -13,7 +13,7 @@ const StoreContextProvider = (props) => {
 
     const [food_list, setFood_list] = useState([])
 
-    const[filterItems,setFilterItems]=useState(food_list)
+    const[filterItems,setFilterItems]=useState([])
 
     const SERVER_URL = "http://localhost:8000"
 
@@ -84,12 +84,14 @@ const StoreContextProvider = (props) => {
         await axios.get(SERVER_URL + "/api/food/list")
             .then(response => {
                 setFood_list(response.data.data)
+                //not work as when data goes into food_list before it the below code will work . therefore food_list is empty so filterItems
+                // setFilterItems(food_list)
+                  setFilterItems(response.data.data)
             })
             .catch(error => {
                 console.log("Error in fetching food list", error.response?.data?.message);
             })
     }
-
 
     //to check in console for items in cart
     useEffect(() => {
