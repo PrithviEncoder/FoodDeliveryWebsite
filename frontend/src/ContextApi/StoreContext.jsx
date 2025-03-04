@@ -7,11 +7,13 @@ const StoreContextProvider = (props) => {
 
     const [showPopup, setShowPopup] = useState(false)
 
-    const [showForgotPopup,setShowForgotPopup]=useState(false)
+    const [showForgotPopup, setShowForgotPopup] = useState(false)
 
     const [cartItems, setCartItems] = useState({})
 
     const [food_list, setFood_list] = useState([])
+
+    const[filterItems,setFilterItems]=useState(food_list)
 
     const SERVER_URL = "http://localhost:8000"
 
@@ -113,6 +115,8 @@ const StoreContextProvider = (props) => {
         SERVER_URL,
         token,
         showForgotPopup,
+        filterItems,
+        setFilterItems,
         setShowForgotPopup,
         setShowPopup,
         setFood_list,

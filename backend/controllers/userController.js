@@ -128,13 +128,14 @@ const forgotPassword = async (req, res) => {
         }
         await sendPasswordResetMail(user.email, `${process.env.CLIENT_URL}/reset-password/${resetToken}`);
 
-        res.status(200).json({ user, success: true, message: "Forgot password is Successful" });
+        res.status(200).json({ user, success: true, message: "Forgot password is Successful check MailBox" });
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Error in forgot password" })
     }
 }
 
+//reset password
 const resetPassword = async (req, res) => {
     const { resetToken } = req.params;
     const { password, confirmPassword } = req.body;
@@ -153,7 +154,7 @@ const resetPassword = async (req, res) => {
         const user = await userModel.findOne({
             resetPasswordToken: resetToken,
             resetPasswordExpiry: { $gt: Date.now() }
-        });
+        });//if after15 min link is click then user will not we there
 
         if (!user) {
             return res.status(400).json({ success: false, message: "User not found for reset password" });
